@@ -1,12 +1,28 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Navigation } from "@/components/navigation";
+import { HeroSection } from "@/components/hero-section";
+import { FeaturesSection } from "@/components/features-section";
+import { Footer } from "@/components/footer";
+import { useEffect } from "react";
 
 const Index = () => {
+  useEffect(() => {
+    // Update page title and meta for SEO
+    document.title = "Nexus AI - Transform Your Workflow with AI";
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'AI-powered productivity platform that revolutionizes how teams collaborate. Automate tasks, generate insights, and boost productivity by 10x.');
+    }
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Navigation />
+      <main>
+        <HeroSection />
+        <FeaturesSection />
+      </main>
+      <Footer />
     </div>
   );
 };
